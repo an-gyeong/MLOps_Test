@@ -1,0 +1,12 @@
+FROM python:3.9
+LABEL version, description
+RUN apt-get update 
+RUN apt-get upgrade -y
+RUN apt-get install python3-pip -y
+
+WORKDIR /data/app
+
+ADD requirements.txt /data/app/
+# COPY requirements.txt /data/app/requirements.txt
+RUN pip install -r requirements.txt
+
